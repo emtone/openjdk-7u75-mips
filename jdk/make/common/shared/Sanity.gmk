@@ -808,17 +808,17 @@ sane-cacerts:
 ifdef OPENJDK
   ifndef CROSS_COMPILE_ARCH
     # The freetypecheck Makefile prints out "Failed" if not good enough
-    $(TEMPDIR)/freetypeinfo: FRC
-	@$(prep-target)
-	@(($(CD) $(BUILDDIR)/tools/freetypecheck && $(MAKE)) || \
-	    $(ECHO) "Failed to build freetypecheck." ) > $@
-
-    sane-freetype: $(TEMPDIR)/freetypeinfo
-	@if [ "`$(CAT) $< | $(GREP) Fail`" != "" ]; then \
-	  $(ECHO) "ERROR: FreeType version " $(REQUIRED_FREETYPE_VERSION) \
-	          " or higher is required. \n" \
-		  "`$(CAT) $<`  \n" >> $(ERROR_FILE) ; \
-	fi
+    #$(TEMPDIR)/freetypeinfo: FRC
+	#@$(prep-target)
+	#@(($(CD) $(BUILDDIR)/tools/freetypecheck && $(MAKE)) || \
+	#    $(ECHO) "Failed to build freetypecheck." ) > $@
+    sane-freetype:
+    #sane-freetype: $(TEMPDIR)/freetypeinfo
+	#@if [ "`$(CAT) $< | $(GREP) Fail`" != "" ]; then \
+	#  $(ECHO) "ERROR: FreeType version " $(REQUIRED_FREETYPE_VERSION) \
+	#          " or higher is required. \n" \
+	#	  "`$(CAT) $<`  \n" >> $(ERROR_FILE) ; \
+	#fi
   else
     #do nothing  (cross-compiling)
     sane-freetype: 
