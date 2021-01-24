@@ -1,7 +1,7 @@
 # openjdk-7u75-mips
 Port from openjdk-7u75-src-b13-18_dec_2014 for mips
 
-# Build Tips:
+# build tips:
 1 set ALT_BOOTDIR and ALT_OUTPUTDIR path  
 ALT_BOOTDIR=xxx  
 ALT_OUTPUTDIR=xxx  
